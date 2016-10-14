@@ -1,0 +1,20 @@
+{
+  "name": "fcc-rougelike-dungeon-crawler-game",
+  "version": "0.0.1",
+  "description": "freecode camp  Roguelike Dungeon Crawler Game",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcMcIntosh/FCC-Rougelike-Dungeon-Crawler-Game.git"
+  },
+  "author": "Marc McIntosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcMcIntosh/FCC-Rougelike-Dungeon-Crawler-Game/issues"
+  },
+  "homepage": "https://github.com/MarcMcIntosh/FCC-Rougelike-Dungeon-Crawler-Game#readme"
+}
