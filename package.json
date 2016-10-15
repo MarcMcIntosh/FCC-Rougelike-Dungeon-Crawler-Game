@@ -16,5 +16,26 @@
   "bugs": {
     "url": "https://github.com/MarcMcIntosh/FCC-Rougelike-Dungeon-Crawler-Game/issues"
   },
-  "homepage": "https://github.com/MarcMcIntosh/FCC-Rougelike-Dungeon-Crawler-Game#readme"
+  "homepage": "https://github.com/MarcMcIntosh/FCC-Rougelike-Dungeon-Crawler-Game#readme",
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "eslint": "^3.8.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-util": "^3.0.7",
+    "html-webpack-plugin": "^2.22.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "redux": "^3.6.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  }
 }
