@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -6,12 +5,21 @@ module.exports = {
   entry: './src/app.jsx',
   target: 'web',
   devtool: 'cheap-source-map',
+  devServer: {
+    inline: true,
+    hot: true,
+  },
   output: {
-    filename: '[chunkhash].js',
+    filename: '[hash].js',
     path: './build',
     publicPath: '/',
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+    modulesDirectories: ['node_modules'],
+  },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       filename: 'index.html',
@@ -19,6 +27,13 @@ module.exports = {
     }),
   ],
   module: {
+    preLoaders: [
+      {
+        loader: 'eslint-loader',
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+      },
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
