@@ -4,4 +4,7 @@
     "browser": true,
     "node": true,
   },
+  "rules": {
+    "no-underscore-dangle": "off",
+  }
 }
