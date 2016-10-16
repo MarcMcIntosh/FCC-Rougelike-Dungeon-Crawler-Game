@@ -1,24 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-
 import { createStore } from 'redux';
-
-function counter(state = 0, action) {
-  switch (action.type) {
-    case 'INCREMENT': return state + 1;
-    case 'DECREMENT': return state - 1;
-    default: return state;
-  }
-}
+import reducers from './reducers/index';
 
 /* Development Store compatable with redux devtools */
-const store = createStore(counter,
+const store = createStore(reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 /* Production */
-// let store = createStore(reducer);
+// let store = createStore(reducers);
 const App = () => (
   <Provider store={store}>
     <h1>Hello World</h1>
