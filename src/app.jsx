@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers/index';
+import ToggleButton from './components/ToggleButton';
 
 /* Development Store compatable with redux devtools */
 const store = createStore(reducers,
@@ -13,7 +14,10 @@ const store = createStore(reducers,
 // let store = createStore(reducers);
 const App = () => (
   <Provider store={store}>
-    <h1>Hello World</h1>
+    <div>
+      <h1>Hello World</h1>
+      <ToggleButton />
+    </div>
   </Provider>
 );
 

@@ -1,6 +1,6 @@
-const DEFAULT = { '0x0': 'player' };
+export const DEFAULT = { '0x0': 'player' };
 
-export default function (state = DEFAULT, action) {
+export default function (state, action) {
   switch (action.type) {
     default: return state;
   }

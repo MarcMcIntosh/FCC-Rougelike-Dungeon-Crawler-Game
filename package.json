@@ -35,9 +35,11 @@
     "gulp-gh-pages": "^0.5.4",
     "gulp-util": "^3.0.7",
     "html-webpack-plugin": "^2.22.0",
+    "lodash": "^4.16.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
+    "reduce-reducers": "^0.1.2",
     "redux": "^3.6.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"

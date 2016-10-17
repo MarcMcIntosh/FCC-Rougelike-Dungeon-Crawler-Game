@@ -1,4 +1,4 @@
-const DEFAULT = {
+export const DEFAULT = {
   entityType: 'player',
   x: 0,
   y: 0,
@@ -9,17 +9,27 @@ const DEFAULT = {
   level: 0,
   toNextLevel: 60,
 };
-
-export default function (state = DEFAULT, action) {
+// entities exclusive Action Types
+export default function (state, action) {
   switch (action.type) {
-    case 'DAMAGE': return {
+    case 'DAMAGE': return { ...state,
+      [action.entityName]: {
+        ...state[action.entityName],
+        health: state[action.entityName].health - action.value,
+      },
+    };
+    case 'HEAL': return { ...state,
+      [action.entityName]: {
+        ...state[action.entityName],
+        health: state.player.health + action.value,
+      },
+    };
+    case 'SWITCH_WEAPON': return {
       ...state,
-      entities: {
-        ...state.entities,
-        [action.entityName]: {
-          ...state.entities[action.entityName],
-          health: state.entities[action.entityName].health - action.value,
-        },
+      player: {
+        ...state.player,
+        weapon: action.weapon,
+        attack: state.player.attack + action.attack,
       },
     };
     default: return state;
