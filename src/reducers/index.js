@@ -7,8 +7,8 @@ import occupiedSpaces from './occupiedSpaces';
 import window from './window';
 
 export default reduceReducers(
-  window,
   darkness,
+  window,
   entities,
   level,
   map,

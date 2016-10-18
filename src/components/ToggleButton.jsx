@@ -1,25 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import toggle from '../actions/ToggleDarkness';
+import { toggleDarkness } from '../actions/Darkness';
 
-const ToggleButton = ({ handleClick, darkness }) => (
+const ToggleButton = ({ handleClick }) => (
   <button
     className="toggleButton"
-    onClick={() => handleClick(!darkness)}
+    onClick={handleClick}
   >Toggle Darkness</button>
 );
 
 ToggleButton.propTypes = {
   handleClick: React.PropTypes.func.isRequired,
-  darkness: React.PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => ({
-  darkness: state.darkness,
-});
-
 const mapDispatchToProps = dispatch => ({
-  handleClick: darkness => dispatch(toggle(darkness)),
+  handleClick: () => dispatch(toggleDarkness()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ToggleButton);
+export default connect(null, mapDispatchToProps)(ToggleButton);
