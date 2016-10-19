@@ -5,6 +5,8 @@ import { createStore } from 'redux';
 import reducers from './reducers/index';
 import ToggleButton from './components/ToggleButton';
 
+require('./styles/main.scss');
+
 /* Development Store compatable with redux devtools */
 const store = createStore(reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

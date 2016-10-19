@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/app.jsx',
@@ -22,10 +23,14 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(['build']),
+    new ExtractTextPlugin('styles.css', { allChunks: true }),
     new HtmlWebpackPlugin({
       inject: true,
       filename: 'index.html',
       template: 'src/index.ejs',
+      files: {
+        css: ['/styles.css'],
+      },
     }),
   ],
   module: {
@@ -47,6 +52,10 @@ module.exports = {
             'transform-object-rest-spread',
           ],
         },
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css!sass'),
       },
     ],
   },
