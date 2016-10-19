@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleDarkness } from '../actions/Darkness';
+import toggleDarkness from '../actions/Darkness';
 
 const ToggleButton = ({ handleClick }) => (
   <button

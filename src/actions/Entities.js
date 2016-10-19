@@ -16,3 +16,9 @@ export const SWITCH_WEAPON = 'SWITCH_WEAPON';
 export function switchWeapon(weapon, attack) {
   return { type: SWITCH_WEAPON, weapon, attack };
 }
+
+
+export const LEVEL_UP = 'LEVEL_UP';
+export function levelUp(attack, health, toNextLevel) {
+  return { type: LEVEL_UP, attack, health, toNextLevel };
+}

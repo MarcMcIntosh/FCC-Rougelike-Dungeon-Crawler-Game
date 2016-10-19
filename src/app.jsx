@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers/index';
 import ToggleButton from './components/ToggleButton';
+import StatusBar from './components/StatusBar';
 
 require('./styles/main.scss');
 
@@ -18,6 +19,7 @@ const App = () => (
   <Provider store={store}>
     <div>
       <h1>Hello World</h1>
+      <StatusBar />
       <ToggleButton />
     </div>
   </Provider>
