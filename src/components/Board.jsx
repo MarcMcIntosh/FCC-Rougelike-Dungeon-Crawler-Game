@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Hammer from 'hammerjs';
+import addVector from '../utility/addVector';
 import setWindowSize from '../actions/Window';
 import {
   resetMap,
@@ -45,7 +46,7 @@ class Board extends React.Component {
     this._setupGame();
   }
   componentDidMount() {
-    if (this.props.entities.player.toNextLevel <= 0) {
+    if (this.props.player.toNextLevel <= 0) {
       this._playerLeveledUp();
     }
     window.addEventListener('keydown', this._handleKeypress);
@@ -69,12 +70,6 @@ class Board extends React.Component {
     const health = currLevel * PLAYER.health;
     const toNext = (currLevel + 1) * PLAYER.toNextLevel;
     this.props.levelUp(attack, health, toNext);
-  }
-  _addVector(coords, vector) {
-    return {
-      x: coords.x + vector.x,
-      y: coords.y + vector.y,
-    };
   }
   _handleKeypress(e) {
     let vector = '';
@@ -113,11 +108,16 @@ class Board extends React.Component {
     }
   }
   _handleMove(vector) {
-    const player = this.props.player;
-    const map = this.props.map;
-    const newCoords = this._addVector({
-      x: player.x,
-      y: player.y,
+    const {
+      occupiedSpaces,
+      entities: { player },
+      map,
+      entities,
+    } = this.props.getState();
+    // const player = this.props.player;
+    // const map = this.props.map;
+    const newCoords = addVector({
+      x: player.x, y: player.y,
     }, vector);
 
     if (
@@ -128,7 +128,7 @@ class Board extends React.Component {
       && map[newCoords.x][newCoords.y] !== tileType.WALL
     ) {
     // Tile is not a wall, determine if it contains an entity
-      const entityName = this.props.occupiedSpaces[
+      const entityName = occupiedSpaces[
         `${newCoords.x}x${newCoords.y}`
       ];
       // move and return if empty
@@ -137,7 +137,7 @@ class Board extends React.Component {
         return;
       }
       // handle encounters with entities
-      const entity = this.props.entities[entityName];
+      const entity = entities[entityName];
       switch (entity.entityType) {
         case 'weapon':
           this.props.switchWeapon(entityName, entity.attack);
@@ -192,7 +192,7 @@ class Board extends React.Component {
   _setupGame() {
     this.props.resetMap();
     this._fillMap();
-    if (this.props.entities.player.toNextLevel <= 0) {
+    if (this.props.player.toNextLevel <= 0) {
       this._playerLeveledUp();
     }
     this.props.setWindowSize();
@@ -331,23 +331,23 @@ Board.propTypes = {
   levelUp: React.PropTypes.func.isRequired,
   removeEntity: React.PropTypes.func.isRequired,
   player: React.PropTypes.object.isRequired,
-  entities: React.PropTypes.object.isRequired,
-  map: React.PropTypes.array.isRequired,
-  occupiedSpaces: React.PropTypes.object.isRequired,
+//  entities: React.PropTypes.object.isRequired,
+//  map: React.PropTypes.array.isRequired,
+//  occupiedSpaces: React.PropTypes.object.isRequired,
   level: React.PropTypes.number.isRequired,
-  windowHeight: React.PropTypes.number.isRequired,
-  windowWidth: React.PropTypes.number.isRequired,
-  darkness: React.PropTypes.bool.isRequired,
+//  windowHeight: React.PropTypes.number.isRequired,
+//  windowWidth: React.PropTypes.number.isRequired,
+//  darkness: React.PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   player: state.entities.player,
-  entities: state.entities,
-  map: state.map,
-  occupiedSpaces: state.occupiedSpaces,
+  // entities: state.entities,
+  // map: state.map,
+  // occupiedSpaces: state.occupiedSpaces,
   level: state.level,
-  windowHeight: state.windowHeight,
-  windowWidth: state.windowWidth,
+  // windowHeight: state.windowHeight,
+  // windowWidth: state.windowWidth,
   darkness: state.darkness,
 });
 

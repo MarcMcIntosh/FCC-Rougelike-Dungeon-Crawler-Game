@@ -21,7 +21,16 @@ module.exports = {
     modulesDirectories: ['node_modules'],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ minimize: true }),
+    // new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(['build']),
     new ExtractTextPlugin('styles.css', { allChunks: true }),
     new HtmlWebpackPlugin({
