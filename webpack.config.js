@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     filename: '[hash].js',
-    path: './build',
+    path: './docs',
     publicPath: '/',
   },
   resolve: {
@@ -31,7 +31,7 @@ module.exports = {
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.UglifyJsPlugin({ minimize: true }),
     // new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin(['build']),
+    new CleanWebpackPlugin(['docs']),
     new ExtractTextPlugin('styles.css', { allChunks: true }),
     new HtmlWebpackPlugin({
       inject: true,
