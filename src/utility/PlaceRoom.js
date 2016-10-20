@@ -1,6 +1,6 @@
 import fillRect from './FillRect';
 import findWall from './FindWall';
-import tileType from './TileType';
+import { tileType } from './GameConstants';
 import getDoorOffset from './GetDoorOffset';
 // Will keep trying to place random rooms in random places until it succeeds.
 

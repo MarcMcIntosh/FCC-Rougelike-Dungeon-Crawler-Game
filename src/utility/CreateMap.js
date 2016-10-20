@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import tileType from './TileType';
+import { tileType } from './GameConstants';
 import fillRect from './FillRect';
 import placeRoom from './PlaceRoom';
 

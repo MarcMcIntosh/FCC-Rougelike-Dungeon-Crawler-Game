@@ -1,4 +1,4 @@
-import tileType from './TileType';
+import { tileType } from './GameConstants';
 // Takes a map matrix and a coordinate object
 // Returns false if not a wall, otherwise the direction of the open tile
 export default function (map, coords) {
