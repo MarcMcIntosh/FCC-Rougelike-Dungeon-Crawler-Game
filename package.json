@@ -32,10 +32,6 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-util": "^3.0.7",
     "hammerjs": "^2.0.8",
     "html-webpack-plugin": "^2.22.0",
     "humane-js": "^3.2.2",
@@ -47,7 +43,6 @@
     "reduce-reducers": "^0.1.2",
     "redux": "^3.6.0",
     "sass-loader": "^4.0.2",
-    "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   },
