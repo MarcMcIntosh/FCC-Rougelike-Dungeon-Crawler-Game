@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import reducers from './reducers/index';
 import ToggleButton from './components/ToggleButton';
 import StatusBar from './components/StatusBar';
-import Board from './components/Board';
+import Game from './components/Board';
 
 require('./styles/main.scss');
 
@@ -24,7 +24,7 @@ const App = () => (
       <div className="buttons">
         <ToggleButton />
       </div>
-      <Board />
+      <Game getState={store.getState} />
     </div>
   </Provider>
 );

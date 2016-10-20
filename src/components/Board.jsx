@@ -46,6 +46,7 @@ class Board extends React.Component {
     this._setupGame();
   }
   componentDidMount() {
+    this._setupGame();
     if (this.props.entities.player.toNextLevel <= 0) {
       this._playerLeveledUp();
     }
@@ -219,7 +220,7 @@ class Board extends React.Component {
     }
   }
   _getEmptyCoords() {
-    const { map, occupiedSpaces } = this.props;
+    const { map, occupiedSpaces } = this.props.getState();
     let coords;
     let x;
     let y;
@@ -234,7 +235,14 @@ class Board extends React.Component {
   }
   render() {
     const {
-      map, entities, occupiedSpaces, player, windowHeight, windowWidth, darkness } = this.props;
+      map,
+      entities,
+      occupiedSpaces,
+      entities: { player },
+      windowHeight,
+      windowWidth,
+      darkness,
+    } = this.props.getState();
     const SIGHT = 7;
     // This should match the css height and width in pixels
     const tileSize = document.getElementsByClassName('tile').item(0) ? document.getElementsByClassName('tile').item(0).clientHeight : 10;
@@ -302,6 +310,7 @@ class Board extends React.Component {
 }
 
 Board.propTypes = {
+  getState: React.PropTypes.func.isRequired,
   setWindowSize: React.PropTypes.func.isRequired,
   resetMap: React.PropTypes.func.isRequired,
   setMap: React.PropTypes.func.isRequired,
