@@ -36,17 +36,15 @@ import {
 } from '../actions/Entities';
 
 class Board extends React.Component {
-  static _addVector(coords, vector) {
-    return {
-      x: coords.x + vector.x,
-      y: coords.y + vector.y,
-    };
+  constructor() {
+    super();
+    this._handleKeypress = this._handleKeypress.bind(this);
+    this._handleSwipe = this._handleSwipe.bind(this);
   }
   componentWillMount() {
     this._setupGame();
   }
   componentDidMount() {
-    this._setupGame();
     if (this.props.entities.player.toNextLevel <= 0) {
       this._playerLeveledUp();
     }
@@ -71,6 +69,12 @@ class Board extends React.Component {
     const health = currLevel * PLAYER.health;
     const toNext = (currLevel + 1) * PLAYER.toNextLevel;
     this.props.levelUp(attack, health, toNext);
+  }
+  _addVector(coords, vector) {
+    return {
+      x: coords.x + vector.x,
+      y: coords.y + vector.y,
+    };
   }
   _handleKeypress(e) {
     let vector = '';
