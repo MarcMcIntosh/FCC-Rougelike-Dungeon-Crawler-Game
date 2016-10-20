@@ -14,7 +14,7 @@ module.exports = {
   output: {
     filename: '[hash].js',
     path: './docs',
-    publicPath: '/',
+    publicPath: '/FCC-Rougelike-Dungeon-Crawler-Game/',
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
